@@ -1,0 +1,81 @@
+debug: true #开启调试模式，打包发布的话，设置为false
+server:
+  port: 8200 #springboot服务的端口
+#  servlet:
+#    context-path: /settingconfig-server
+spring:
+  data:
+    mongodb:
+      uri: mongodb://hddyf:hddyffyddh@61.174.255.232:27018/hddyf
+  application:
+    name: service-a
+  jmx:
+    default-domain: settingconfig-server
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:mysql://183.131.202.92:3306/ods?&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: w8Kz4#mj@
+    type: com.alibaba.druid.pool.DruidDataSource
+    connectionInitSqls: set names utf8mb4
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    #spring.datasource.filters=stat,wall,log4j
+    connectionProperties=druid.stat.mergeSql: true;druid.stat.slowSqlMillis=5000
+  redis:
+    database: 0
+    host: 183.131.202.92
+    port: 10001
+    password: Redis@123
+    timeout: 10000
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 1
+  cloud:
+    consul:
+#      host: 192.168.18.171 #consul地址（server节点和client节点都可以）
+      host: 127.0.0.1 #consul地址（server节点和client节点都可以）
+      port: 8500      #consul端口
+      discovery:
+        register: true #启动是否注册服务
+        #hostname: xxx.xxx.x.xxx #springboot服务的主机地址，也可以不配置，默认本机地址
+        serviceName: ${spring.application.name} #Consul上注册的服务名称
+        healthCheckPath: /actuator/health       #Consul健康检查地址，Actuator组件实现，不需要额外的实现
+        healthCheckInterval: 15s                #Consul健康检查频率，也就是心跳频率
+        tags: urlprefix-/${spring.application.name} #Consul 注册服务的 Tags，设置为urlprefix-/serviceName的格式，是自动注册到 Fabio 集群中
+        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}} #Consul 注册服务ID
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml 
+OSS:
+  upload:
+    url: https://ywinvesttest.zjbdos.com/oss/oss/upload
+    type: 2
+  uploadCutCenter:
+    url:  https://ywinvesttest.zjbdos.com/oss/oss/uploadCutCenter
+  fdfs:
+    bucketName: group1
+    ak:
+    sk:
+  OBS:
+    ak: 7AKEJNYUBJHTZY8RSZ32
+    sk: KO8hqc7EQkFdofCfjR4XIgeGVu654Rm6UENnE5Vu
+    bucketName: obs-wb-tcj
+# 关闭redis健康检查
+management:
+  health:
+    redis:
+      enabled: false

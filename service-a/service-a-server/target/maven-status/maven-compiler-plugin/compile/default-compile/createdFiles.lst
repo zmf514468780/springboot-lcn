@@ -1,0 +1,8 @@
+com\dao\CurrencyMapper.class
+com\feign\controller\CurrentServiceFeignController.class
+com\controller\CurrencyController.class
+com\service\CurrencyService.class
+com\service\impl\CurrencyServiceImpl.class
+com\entity\BaseEntity.class
+com\ServiceApp.class
+com\entity\Currency.class

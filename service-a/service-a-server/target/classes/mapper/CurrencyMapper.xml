@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjbdos.ods.settingconfig.server.dao.dao.CurrencyMapper">
+  <resultMap id="BaseResultMap" type="com.entity.Currency">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="english_abbreviation" jdbcType="VARCHAR" property="englishAbbreviation" />
+    <result column="currency_symbol" jdbcType="VARCHAR" property="currencySymbol" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="createby" jdbcType="VARCHAR" property="createby" />
+    <result column="modify_time" jdbcType="BIGINT" property="modifyTime" />
+    <result column="modify_name" jdbcType="VARCHAR" property="modifyName" />
+    <result column="modifyby" jdbcType="VARCHAR" property="modifyby" />
+    <result column="deleted" jdbcType="INTEGER" property="deleted" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="organization_entity_id" jdbcType="VARCHAR" property="organizationEntityId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="used" jdbcType="INTEGER" property="used" />
+    <result column="defaulted" jdbcType="INTEGER" property="defaulted" />
+  </resultMap>
+</mapper>
